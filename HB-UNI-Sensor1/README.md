@@ -25,8 +25,9 @@
   - [FHEM Installation](#fhem-installation)
   - [Serieller Log beim Start des Sensors](#serieller-log-beim-start-des-sensors)
 - Diverse Infos
-  - [Trägheit verschiedener Temperatursensoren](#trägheit-verschiedener-temperatursensoren)
   - [Benutzerspezifische Sensordaten](#benutzerspezifische-sensordaten)
+  - [Trägheit verschiedener Temperatursensoren](#trägheit-verschiedener-temperatursensoren)
+  - [Anschlussbelegung DS18B20](#anschlussbelegung-ds18b20)
   - [Optionaler Reset-Baustein MCP111](#optionaler-reset-baustein-mcp111)
   - [Bewegungsmelder mit PIR AS312 am digitalen Eingang](#bewegungsmelder-mit-pir-as312-am-digitalen-eingang)
   - [Warnung vor dem Flashen von 3,3V Geräten mit USBasp Klones](#exclamation-warnung-vor-dem-flashen-von-33v-geräten-mit-usbasp-klones)
@@ -39,7 +40,7 @@
 ## Features
 
 - Demonstriert einen HomeMatic/RaspberryMatic/FHEM Universalsensor
-- Sensoren für Temperatur (DS18x20, BME280), Luftdruck (BME280, BMP180), Luftfeuchte (BME280, SHT10, SHT21, SHT31), Helligkeit (MAX44009, TSL2561, BH1750), UV-Index (VEML6070, VEML6075) uvm. bestückbar
+- Sensoren für Temperatur (DS18B20, BME280), Luftdruck (BME280, BMP180), Luftfeuchte (BME280, SHT10, SHT21, SHT31), Helligkeit (MAX44009, TSL2561, BH1750), UV-Index (VEML6070, VEML6075) uvm. bestückbar
 - modifizierbar für andere Sensoren
 - Bestückung mit Arduino Pro Mini oder alternativ mit ATmega328P
 - RC- oder Quarzoszillator möglich
@@ -75,7 +76,7 @@ Beispiel:<br>
 
 - Zum Kompilieren des Sketches benötigt man alle Dateien unterhalb der Verzeichnisses *Arduino*.<br>
   Falls man deswegen nicht hier das gesamte Repository downloaden möchte habe ich diese Dateien in [Arduino.zip](Arduino.zip) gepackt, diese Datei dann einfach in Eurem Arduino-Sketche Verzeichnis auspacken.
-  
+
 - Der HB-UNI-Sensor1 Sketch benötigt den master-Branch der [AskSinPP Library](https://github.com/pa-pa/AskSinPP), nicht den V4 Release-Branch wie dort angegeben.<br>
   Grund: Verwendung der broadcastEvent() Methode.
 
@@ -114,6 +115,10 @@ Beispiel:<br>
 ![pic](Images/UniSensor_HW_Vi2.20_4.jpg)
 
 ![pic](Images/UniSensor_HW_Vi2.20_5.jpg)
+
+![pic](Images/UniSensor_HW_Vi2.20_10.jpg)
+
+![pic](Images/UniSensor_HW_Vi2.20_11.jpg)
 
 
 ## Schaltplan
@@ -254,13 +259,16 @@ Bestückungsvarianten
 - Gehäusevariante 2 (Innen): 3D Druck, Design by Jan_von_neben_an (Schmelzerboy) <br>
 [Gehäuse HB-UNI-Sensor1](https://www.thingiverse.com/thing:3766944)
 
+- Gehäusevariante 3 (Innen): 3D Druck, Design by SonOfAbaddon <br>
+[Gehäuse HB-UNI-Sensor1](https://www.thingiverse.com/thing:4752365)
+
 ![pic](Images/UniSensor_HW_Vi2.20_6.jpg)
 
 | Bauelement | Wert | Bauform | Bemerkungen | Beispiel Reichelt oder aliexpress |
 |---|---|---|---|---|
 | IC1 | Atmega 328P | TQFP |  | ATMEGA 328P-AU |
 | IC2 | CC1101 | SMD |  | (aliexpress) |
-| R1, R5, R6, R8, R9 | 10k | 0805 | R8 nur bei DS18X20 Einsatz | RND 0805 1 10K |
+| R1, R5, R6, R8, R9 | 10k | 0805 | R8 nur bei DS18B20 Einsatz | RND 0805 1 10K |
 | R7 | 1,5k | 0805 | |  RND 0805 1 1,5K |
 | C1..C7 | 100nF | 0805 | C5..C7 je nach verbauten I2C-Sensoren | X7R-G0805 100N |
 | C8 | 1uF | 0805 |  | X7R-G0805 1,0/25 |
@@ -355,9 +363,9 @@ Auch ein Arduino Uno kann zum ISP-Programmer umfunktioniert werden.
 - HB-UNI-Sensor1 für für Außen- oder Innenanwendungen, 07/2019
 - Weiterentwicklung vom PLHT Sensor Version 2.01 mit anderen Gehäusevarianten
 - Bestückung mit ATmega328P, RC-Oszillator als Standard
-- Sensoren für Temperatur (DS18x20, BME280), Luftdruck (BME280, BMP180), Luftfeuchte (BME280, SHT10, SHT21, SHT31), Helligkeit (MAX44009, TSL2561, BH1750), UV-Index (VEML6070, VEML6075) uvm. bestückbar
+- Sensoren für Temperatur (DS18B20, BME280), Luftdruck (BME280, BMP180), Luftfeuchte (BME280, SHT10, SHT21, SHT31), Helligkeit (MAX44009, TSL2561, BH1750), UV-Index (VEML6070, VEML6075) uvm. bestückbar
 - 5x I2C Stiftleisten vorhanden, damit können bis zu 5 I2C Sensoren auf Breakout-Boards parallel bestückt werden
-- 1-Wire Temperatursensor DS18x20 bestückbar
+- 1-Wire Temperatursensor DS18B20 bestückbar
 - Spannungsversorgung: Batterien/Akku 2 AA-Zellen
 - Die nicht benutzten Arduino Pins 3, 6, 7, A0 sind auf einem extra Steckverbinder für Erweiterungen herausgeführt (K3)
 - Option: Echte Batteriespannungsmessung unter Last (Schutz vor "Babbling Idiot")
@@ -390,7 +398,7 @@ Auch ein Arduino Uno kann zum ISP-Programmer umfunktioniert werden.
 - die Befestigungslöcher der Platine für das BOX-SENS-WHITE Gehäuse müssen ca. 1mm weiter auseinander (TomMajor)
 - das Lötpad GDO2 am CC1101 kann im Platinenlayout entfernt werden da nicht benötigt (TomMajor)
 - den optionalen Miniatur-Quarz um 90° drehen damit ein 32kHz Quarz optional liegend bestückt werden kann + ggf. 2 weitere SMD Kond. für diesen 32kHz Quarz (harvey)
-- ggf. Lötpads für einen 2. DS18x20 vorsehen um einen Differenztemperatursensor zu realisieren (der 2. DS18x20 geht dann nach Extern) (harvey)
+- ggf. Lötpads für einen 2. DS18B20 vorsehen um einen Differenztemperatursensor zu realisieren (der 2. DS18B20 geht dann nach Extern) (harvey)
 
 
 ## Bestellung der Platine
@@ -443,11 +451,78 @@ FHEM user *kpwg*
 ![pic](Images/Serial_Log.png)
 
 
+## Benutzerspezifische Sensordaten
+
+Ab HB-TM-Devices-AddOn Version 2.51 habe ich die Möglichkeiten für benutzerspezifischen Daten bzw. ein benutzerspezifisches Datenlayout erweitert.<br>
+Neu ab dieser Version sind 5 weitere Sensoren-Templates HB-UNI-Sensor2..6 die man nach eigen Wünschen gestalten kann.<br>
+Diese haben neue Device Model IDs bekommen (F112..F116), eigene install/uninstall-Skripte sowie eigene Firmware-xml.
+
+###### Ein Benutzer, der das Datenlayout eines Sensors ändern möchte, kann dies mit folgenden Schritten erreichen:
+
+- hb-uni-sensorX.xml auf das gewünschte Datenlayout anpassen, siehe Beispiele hb-uni-sensor2.xml / hb-uni-sensor3.xml
+- dazu passend die Senderoutine im Sketch HB-UNI-SensorX.ino ändern so dass die Payload zum xml passt, im init() der WeatherEventMsg:<br>
+`    class WeatherEventMsg : public Message {`<br>
+`    public:`<br>
+`      void init() {..`<br>
+- weiterhin im Sketch HB-UNI-SensorX.ino sicherstellen das die richtige Device Model ID (F112..F116), passend zum xml, verwendet wird
+- das neue hb-uni-sensorX.xml unter<br>
+`  /usr/local/addons/hb-tm-devices-addon/customized_firmware`<br>
+  ablegen
+- Neustarten der Zentrale
+- Anlernen des neuen Sensors
+
+###### Das AddOn Skript sorgt dafür, dass die alternativen Firmware xml-Dateien bei Aktionen wie:
+
+- AddOn Update-Installation,
+- Einspielen eines RM/CCU Backups,
+- Update der RM/CCU Firmware
+wieder in das richtige Verzeichnis kopiert und in der Zentrale berücksichtigt werden.
+
+###### Ich habe dazu ein paar kurze Beispiele gemacht:
+
+- hb-uni-sensor2.xml<br>
+Hier ist der (oft nicht benötigte) Datenpunkt 'Ventilposition' (Digitaler Eingang) weggelassen, so dass dieser HB-UNI-Sensor2 nur 5 Datenpunkte hat.<br>
+Den Sketch (HB-UNI-Sensor2.ino) und die Payload darin braucht man dafür nicht unbedingt zu ändern.
+![pic](Images/HB-UNI-Sensor2_WebUI.png)
+
+- hb-uni-sensor3.xml<br>
+Hier ist der Datenpunkt 'Ventilposition' geändert in 'Wassertemperatur' um eine Frage aus dem Forum aufzugreifen.<br>
+Dazu habe ich ein passendes HB-UNI-Sensor3.bsp gemacht in dem nur als Beispiel diese Wassertemperatur mit dem Wert 22,4 °C gesendet wird.
+![pic](Images/HB-UNI-Sensor3_WebUI.png)
+<br>
+Dieser sketch liegt mit im /Arduino Verzeichnis. Er muss in .ino umbenannt werden und für die Arduino-IDE muss das Verzeichnis dann HB-UNI-Sensor3 heißen (Sketch-Name und Verzeichnisname müssen gleich sein).
+
+- hb-uni-sensor4.xml<br>
+Ist identisch zu hb-uni-sensor2.xml, nur als Dummy vorgehalten.
+
+- hb-uni-sensor5.xml<br>
+Ein neuer Datenpunkt für den UV-Sensor VEML6070 wurde ergänzt, der per define im Sketch unterstützt wird.
+Der Datenpunkt 'Ventilposition' (Digitaler Eingang) wurde entfernt.
+
+- hb-uni-sensor6.xml<br>
+Ein neuer Datenpunkt für den UV-Sensor VEML6075 wurde ergänzt, der per define im Sketch unterstützt wird.
+Der Datenpunkt 'Ventilposition' (Digitaler Eingang) wurde entfernt.
+
+
+###### Außerdem noch der Hinweis das bei Änderungen am xml immer eventuell vorhandene dazugehörigen Geräte mit dieser Device Model ID in der Zentrale abgelernt/gelöscht und nach der xml Änderung wieder neu angelernt werden müssen.
+
+###### Die verwendeten Device Model IDs:
+
+| Sensor | Device Model |
+|---|---|
+| HB-UNI-Sensor1 | 0xF103 |
+| HB-UNI-Sensor2 | 0xF112 |
+| HB-UNI-Sensor3 | 0xF113 |
+| HB-UNI-Sensor4 | 0xF114 |
+| HB-UNI-Sensor5 | 0xF115 |
+| HB-UNI-Sensor6 | 0xF116 |
+
+
 ## Trägheit verschiedener Temperatursensoren
 
 Der Temperaturwert des BME280 reagiert träger als andere Temperatursensoren, dies liegt m.E. an der engen thermischen Kopplung zwischen aufgelötetem Chip und Platine und der daraus resultierenden thermischen Trägheit des Systems.<br>
 Temperatursensoren die nur über ihre Anschlüsse in der Luft hängen reagieren schneller.<br><br>
-Ich empfehle daher für die Temperaturmessung einen zusätzlichen DS18x20 zu verbauen und die Temperatur des BME280 zu ignorieren. Im Sketch ist das entsprechend berücksichtigt.<br>
+Ich empfehle daher für die Temperaturmessung einen zusätzlichen DS18B20 zu verbauen und die Temperatur des BME280 zu ignorieren. Im Sketch ist das entsprechend berücksichtigt.<br>
 <br>
 Vergleich der BME280 / DS18B20 / SHT10 Temperaturwerte bei einem 6K Sprung<br>
 Quelle: FHEM user *Gernott*<br>
@@ -456,37 +531,9 @@ Quelle: FHEM user *Gernott*<br>
 ![pic](Images/Vergleich_Temperatursensoren.png)
 
 
-## Benutzerspezifische Sensordaten
+## Anschlussbelegung DS18B20
 
-Ab Firmware 0x13 können zwei extra Byte 'customData' in der Payload mit benutzerspezifischen Daten belegt
-und mit einer alternativen Firmware xml-Datei der RaspberryMatic/CCU2/CCU3-Zentrale bzw. mit dem Perl-Skript FHEM zur Verfügung gestellt werden.
-
-Diese alternative Firmware xml-Datei muss für die Behandlung von 'customData' angepasst werden und im Verzeichnis<br>
-`/usr/local/addons/hb-uni-sensor1/customized_firmware`<br>
-liegen.
-
-Das AddOn Skript sorgt dann dafür, dass die alternativen Firmware xml-Dateien bei Aktionen wie
-- AddOn Update-Installation,
-- Einspielen eines RaspberryMatic/CCU2/CCU3 Backups,
-- Update der RaspberryMatic/CCU2/CCU3 Firmware
-
-wieder in das richtige Verzeichnis kopiert und in der Zentrale berücksichtigt werden.
-
-Ein Beispiel für eine alternative Firmware xml-Datei, die zusätzlich den gemessenen UV-Index für den VEML6070 Sensor zur Verfügung stellt, liegt nach Installation des AddOn im Verzeichnis<br>
-`/usr/local/addons/hb-uni-sensor1/customized_firmware_bsp`
-
-HomeMatic:<br>
-Zur Aktivierung muss dieses Verzeichnis in <br>
-`customized_firmware`<br>
-umbenannt und anschließend die Zentrale neugestartet werden.
-
-Danach (und bei jeder weiteren eventuellen Änderung in der alternativen Firmware xml-Datei) muss ein bereits vorhandener HB-UNI-Sensor1 abgelernt/gelöscht und wieder neu angelernt werden!<br>
-Nur so werden die xml Änderungen in die Zentrale übernommen.
-
-FHEM:<br>
-2 auskommentierte Beispiele für den UV-Index von VEML6070 bzw. VEML6075 sind am Ende des Perl-Skripts HMConfig_UniSensor1.pm vorhanden.
-
-![pic](Images/HB-UNI-Sensor1_CustomData.png)
+![pic](Images/DS18B20_Pin_Assignment.jpg)
 
 
 ## Optionaler Reset-Baustein MCP111
@@ -540,7 +587,7 @@ FHEM:<br>
 [EnableInterrupt](https://github.com/GreyGnome/EnableInterrupt)</br>
 [Low-Power](https://github.com/rocketscream/Low-Power)
 
-Für einen DS18x20 Sensor (Temperatur):</br>
+Für einen DS18B20 Sensor (Temperatur):</br>
 [OneWire](https://github.com/PaulStoffregen/OneWire)
 
 Für einen BME280 Sensor (Temperatur/Druck/Feuchte):</br>

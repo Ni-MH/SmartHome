@@ -80,12 +80,17 @@ Außerdem ist für diesen Anwendungsfall eine kleine und individuell konfigurier
 
 ![pic](Images/asksin-analyzer-xs-freqtest.png)
 
-- dann den [AskSin-Sniffer](https://github.com/psi-4ward/AskSinAnalyzer-Sniffer) auf den Arduino Nano flashen
+- dann den [AskSin-Sniffer](https://github.com/psi-4ward/AskSinAnalyzer-Sniffer/tree/master/Sniffer) auf den Arduino Nano flashen
 - im Sketch die LED an Pin8 aktivieren:<br>
 `#define USE_LED_PIN_8`
+
 - die [AskSinAnalyzerXS Applikation](https://github.com/psi-4ward/AskSinAnalyzerXS/releases) downloaden und dort den seriellen Port des Arduino Nano einstellen, Fertig.
 
 ![pic](Images/asksin-analyzer-xs-application.png)
+
+- Falls man das OLED Display verwenden will muss man:
+  - `#define USE_OLED` in AskSinSniffer328P.ino Zeile 8 aktivieren
+  - die Datei Ssd1306.h aus dem [AskSin-Sniffer](https://github.com/psi-4ward/AskSinAnalyzer-Sniffer/tree/master/Sniffer) Repository mit an die Stelle wo der Sketch liegt kopieren
 
 
 ## Stückliste
@@ -119,6 +124,9 @@ Außerdem ist für diesen Anwendungsfall eine kleine und individuell konfigurier
 | 1 | LED2	            | gelb	            | 0805          | Optional: BI-Wünschelrute |
 
 
+[Warenkorb bei Reichelt von Psi](https://www.reichelt.de/my/1731220)
+
+
 ## Zusätzlicher 3,3V Spannungsregler (LDO)
 
 - Ich habe einen SOT-23 LDO für die 3,3V Versorgung des CC1101 vorgesehen da mir der verfügbare Ausgangsstrom des CH340C etwas wenig vorkommt.<br>
@@ -141,13 +149,39 @@ Der AVR erkennt ab 3V sicher High-Pegel bei Vcc 5V. Falls fehlerhafterweise ein 
 
 ## Gehäuse
 
-- Gehäusevariante von Psi
+###### Gehäusevariante von Alveran
+
+![pic](Images/asksin-analyzer-xs-build8.jpg)
+
+![pic](Images/asksin-analyzer-xs-build9.jpg)
+
+![pic](Images/asksin-analyzer-xs-build10.jpg)
+
+[:arrow_right: Gehäuse 3D-Druck Variante von Alveran](3D_Druck)
+
+###### Gehäusevariante von Asselhead (mit OLED Fenster)
+
+![pic](Images/Asselhead_Case1.jpg)
+
+![pic](Images/Asselhead_Case2.jpg)
+
+[:arrow_right: Gehäuse 3D-Druck Variante von Asselhead](https://www.thingiverse.com/thing:4614542)
+
+###### Gehäusevariante von Psi (mit OLED Fenster)
 
 ![pic](Images/Psi_Case1.jpg)
 
 ![pic](Images/Psi_Case2.jpg)
 
 [:arrow_right: Gehäuse 3D-Druck Variante von Psi](https://github.com/psi-4ward/AskSin-Analyzer-XS-Board-Case)
+
+
+## Verbesserungen für's nächste Redesign
+
+- Die neue CC1101-Board Generation ist in 2020 etwas breiter geworden (hat jetzt volle + zusätzlich halbe thru-hole/SMD Pads), siehe [CC1101 kaufen](https://homematic-forum.de/forum/viewtopic.php?f=76&t=59315), deshalb den CC1101-Footprint für die neue Generation anpassen - die neuen passen aber dennoch drauf, nur nicht perfekt.<br>
+Außerdem ist das Rastermaß der CC1101 auf der Antennenseite jetzt 2mm (vorher 2,54mm - die SPI Seite hatte schon immer 2mm).
+
+- Für die Gehäusevariante von Alveran und bei Einsatz einer bedrahteten LED sollte man diese an eine andere Stelle verlegen, nicht so nah am Antennenanschluss, damit man die LED gerade einlöten kann.
 
 
 ## Links

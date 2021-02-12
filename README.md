@@ -6,10 +6,10 @@
 
 ## AddOn Kompatibilität
 
-| |AddOn|Status|letzte getestete Firmware (RaspberryMatic)|
-|---|---|---|---|
-| :heavy_check_mark: | [HB-TM-Devices-AddOn](HB-TM-Devices-AddOn)       | lauffähig unter CCU / RaspberryMatic | 3.51.6.20200229 |
-| :heavy_check_mark: | [HB-TM-JP-AddOn-Reduced](HB-TM-JP-AddOn-Reduced) | lauffähig unter CCU / RaspberryMatic | 3.51.6.20200229 |
+|  | AddOn | Version | Status | letzte getestete Firmware (RaspberryMatic) |
+|---|---|---|---|---|
+| :heavy_check_mark: | [HB-TM-Devices-AddOn](HB-TM-Devices-AddOn)       | 2.53 | lauffähig unter CCU / RaspberryMatic | 3.53.34.20201121 |
+| :heavy_check_mark: | [HB-TM-JP-AddOn-Reduced](HB-TM-JP-AddOn-Reduced) | 2.14 | lauffähig unter CCU / RaspberryMatic | 3.53.34.20201121 |
 
 
 ## Disclaimer
@@ -30,6 +30,8 @@
 
 Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic Forum](https://homematic-forum.de/forum/viewforum.php?f=76) oder im [FHEM Forum](https://forum.fhem.de/index.php/board,22.0.html) fragen.
 
+<br>
+
 
 ## Universalsensor HB-UNI-Sensor1
 
@@ -45,7 +47,7 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 
 <p align="center"><img src="Images/PLHT_i220_small.jpg?raw=true"/></p>
 
--> [Projektseite HB-UNI-Sensor1](https://github.com/TomMajor/SmartHome/tree/master/HB-UNI-Sensor1)
+:arrow_right: [Projektseite HB-UNI-Sensor1](https://github.com/TomMajor/SmartHome/tree/master/HB-UNI-Sensor1)
 
 
 ## Füllstandsanzeige Öltank/Wassertank HB-SEN-LJet
@@ -55,7 +57,7 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 
 <p align="center"><img src="Images/LevelJet_small.jpg?raw=true"/></p>
 
--> [Projektseite HB-SEN-LJet](https://github.com/TomMajor/SmartHome/tree/master/HB-SEN-LJet)
+:arrow_right: [Projektseite HB-SEN-LJet](https://github.com/TomMajor/SmartHome/tree/master/HB-SEN-LJet)
 
 
 ## Script Helper, Infos und reduced AddOn zum 4,2" ePaper Display HB-DIS-EP-42BW von Jérôme/jp112sdl
@@ -64,7 +66,7 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 
 <p align="center"><img src="Images/EP42_small.jpg?raw=true"/></p>
 
--> [Projektseite HB-DIS-EP-42BW](https://github.com/TomMajor/SmartHome/tree/master/HB-Dis-EP-42BW)
+:arrow_right: [Projektseite HB-DIS-EP-42BW](https://github.com/TomMajor/SmartHome/tree/master/HB-Dis-EP-42BW)
 
 
 ## 6fach S0-Stromzähler HB-ES-S0-CNT6
@@ -76,7 +78,7 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 
 <p align="center"><img src="Images/HB-ES-S0-CNT6_small.jpg?raw=true"/></p>
 
--> [Projektseite HB-ES-S0-CNT6](https://github.com/TomMajor/SmartHome/tree/master/HB-ES-S0-CNT6)
+:arrow_right: [Projektseite HB-ES-S0-CNT6](https://github.com/TomMajor/SmartHome/tree/master/HB-ES-S0-CNT6)
 
 
 ## tmStamp
@@ -87,7 +89,34 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 
 <p align="center"><img src="Images/tmStamp_small.jpg?raw=true"/></p>
 
--> [Projektseite tmStamp](https://github.com/TomMajor/SmartHome/tree/master/PCB/tmStamp)
+:arrow_right: [Projektseite tmStamp](https://github.com/TomMajor/SmartHome/tree/master/PCB/tmStamp)
+
+
+## HB-UNI-Sensor-Blitz
+
+- Der HB-UNI-Sensor-Blitz ist ein Homebrew HomeMatic-Sensor zur Erkennung von Blitzen, basierend auf dem AS3935 Franklin-Blitzsensor IC
+- Der AS3935 ist ein programmierbarer Sensor, der Blitzaktivitäten in einer Entfernung von bis zu 40 km erkennen kann. Er verwendet einen proprietären, fest verdrahteten Algorithmus, um Rauschen und künstlich verursachte Störfaktoren herauszufiltern und die Entfernung zur Gewitterfront abzuschätzen
+- Alle Parameter des Chips sind über das HomeMatic WebUI konfigurierbar
+
+<p align="center"><img src="Images/HB-UNI-Sensor-Blitz_small.png?raw=true"/></p>
+
+:arrow_right: [Projektseite HB-UNI-Sensor-Blitz](https://github.com/TomMajor/SmartHome/tree/master/HB-UNI-Sensor-Blitz)
+
+
+## HB-Sec-WDS-2
+
+- Wassermelder mit Leitfähigkeitsmessung zwischen den Elektroden
+- das Gerät ist von den Abmessungen und dem Gehäuse dem originalen HM-Sec-WDS-2 nachempfunden
+- per define im Sketch sind zwei Modi möglich:
+  - Trocken/Wasser Erkennung (4 Elektroden, 2+2)
+  - Trocken/Feucht/Wasser Erkennung (5 Elektroden, 2+2+1)
+- per define im Sketch sind zwei Varianten möglich:
+  - HM-Sec-WDS-2 Original, keine Add-On Installation nötig
+  - HB-Sec-WDS-2, dieser hat zusätzlich die Batteriespannung des Gerätes als Datenpunkt in der Zentrale, dafür ist mein [HB-TM-Devices-AddOn](https://github.com/TomMajor/SmartHome/tree/master/HB-TM-Devices-AddOn) erforderlich
+
+<p align="center"><img src="Images/HB-Sec-WDS-2_small.jpg?raw=true"/></p>
+
+:arrow_right: [Projektseite HB-Sec-WDS-2](https://github.com/TomMajor/SmartHome/tree/master/HB-Sec-WDS-2)
 
 
 ## HB-UNI-Sensor-Heizung
@@ -99,7 +128,22 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 
 <p align="center"><img src="Images/HB-UNI-Sensor-Heizung_small.jpg?raw=true"/></p>
 
--> [Projektseite HB-UNI-Sensor-Heizung](https://github.com/TomMajor/SmartHome/tree/master/HB-UNI-Sensor-Heizung)
+:arrow_right: [Projektseite HB-UNI-Sensor-Heizung](https://github.com/TomMajor/SmartHome/tree/master/HB-UNI-Sensor-Heizung)
+
+
+## HB-TM-Devices-AddOn
+
+- Ein RaspberryMatic / CCU AddOn zur Unterstützung meiner Projekte/Geräte:
+  - HB-UNI-Sensor1
+  - HB-UNI-Sensor2..6 (Benutzerspezifische Sensordaten)
+  - HB-SEN-LJet
+  - HB-UNI-Sensor-Heizung
+  - HB-UNI-Sensor-Blitz
+  - HB-Sec-WDS-2
+
+<p align="center"><img src="Images/HB-TM-Devices-AddOn_small.png?raw=true"/></p>
+
+:arrow_right: [Projektseite HB-TM-Devices-AddOn](https://github.com/TomMajor/SmartHome/tree/master/HB-TM-Devices-AddOn)
 
 
 ## HB-CC1101-Testbench
@@ -113,17 +157,7 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 
 <p align="center"><img src="Images/HB-CC1101-Testbench_small.jpg?raw=true"/></p>
 
--> [Projektseite HB-CC1101-Testbench](https://github.com/TomMajor/SmartHome/tree/master/HB-CC1101-Testbench)
-
-
-## Wassermelder HB-SEC-WDS-2
-
-- Wassermelder mit Leitfähigkeitsmessung zwischen den Elektroden
-- Demonstriert die Verwendung vom 'ThreeStateSensor' device type aus der AskSinPP Bibliothek mit einer anpassbaren Messroutine, in diesem Fall die Leitfähigkeitsmessung mit dem integrierten ADC
-
-<p align="center"><img src="Images/Prototyp_Wassermelder_small.jpg?raw=true"/></p>
-
--> [Projektseite HB-SEC-WDS-2](https://github.com/TomMajor/SmartHome/tree/master/HB-SEC-WDS-2)
+:arrow_right: [Projektseite HB-CC1101-Testbench](https://github.com/TomMajor/SmartHome/tree/master/HB-CC1101-Testbench)
 
 
 ## 3-Kanal Kontakt-Interface für Öffner und Schließerkontake HB-SCI-3-FM
@@ -132,7 +166,7 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 
 <p align="center"><img src="Images/HB_SCI_3_FM_small.jpg?raw=true"/></p>
 
--> [Projektseite HB-SCI-3-FM](https://github.com/TomMajor/SmartHome/tree/master/HB-SCI-3-FM)
+:arrow_right: [Projektseite HB-SCI-3-FM](https://github.com/TomMajor/SmartHome/tree/master/HB-SCI-3-FM)
 
 
 ## HB-TM-JP-AddOn-Reduced
@@ -145,7 +179,7 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 
 <p align="center"><img src="Images/HB-TM-JP-AddOn-Reduced_small.png?raw=true"/></p>
 
--> [Projektseite HB-TM-JP-AddOn-Reduced](https://github.com/TomMajor/SmartHome/tree/master/HB-TM-JP-AddOn-Reduced)
+:arrow_right: [Projektseite HB-TM-JP-AddOn-Reduced](https://github.com/TomMajor/SmartHome/tree/master/HB-TM-JP-AddOn-Reduced)
 
 
 ## Diverse Platinen
@@ -157,6 +191,15 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 <p align="center"><img src="Images/various_pcb.png?raw=true"/></p>
 
 -> [Projektseite PCB](https://github.com/TomMajor/SmartHome/tree/master/PCB)
+
+
+## AskSinAnalyzer Aufbau und Software
+
+- Meine Linksammlung und Hinweise zum Aufbau und Software für den AskSinAnalyzer
+
+<p align="center"><img src="Images/AskSinAnalyzer_small.jpg?raw=true"/></p>
+
+-> [Projektseite AskSinAnalyzer](https://github.com/TomMajor/SmartHome/tree/master/PCB/AskSin-Analyzer)
 
 
 ## Schutz vor "Babbling Idiot" (BI)
@@ -226,6 +269,11 @@ Bei Fragen oder Problemen also bitte in den entsprechenden Threads im [HomeMatic
 - :warning: AVR und CC1101 können bei 3,3V durch Einsatz eines USBasp Klones zerstört werden :warning:
 
 -> [Warnung](https://github.com/TomMajor/SmartHome/tree/master/Info/Warnung_Flashen_33_USBasp_Klones)
+
+
+## Meine RaspberryMatic Zentrale (Raspberry Pi + RPI-RF-MOD)
+
+![pic](Images/MyRaspberryMaticCCU.jpg)
 
 
 ## Lizenz
